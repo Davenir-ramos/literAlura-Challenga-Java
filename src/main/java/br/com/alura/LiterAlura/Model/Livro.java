@@ -16,8 +16,8 @@ public class Livro {
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "autor_id")
     private Autor autor;
-
     private String idiomas;
+    private Double numeroDownloads;
 
     public Livro(){}
 
@@ -69,12 +69,20 @@ public class Livro {
         this.autor = autor;
     }
 
+    public Double getNumeroDownloads() {
+        return numeroDownloads;
+    }
+
+    public void setNumeroDownloads(Double numeroDownloads) {
+        this.numeroDownloads = numeroDownloads;
+    }
 
     @Override
     public String toString() {
         return "titulo: '" + titulo + '\'' +
                 "\nAutor: " +(autor != null ? autor.getNome() : "Desconhecido") +
-                "\nidiomas: " + idiomas + "\n";
+                "\nIdioma: " + idiomas +
+                "\nNúmero de Downloads:" + numeroDownloads + "\n";
     }
 
 }
