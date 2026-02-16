@@ -19,18 +19,19 @@ public class Livro {
     private String idiomas;
     private Double numeroDownloads;
 
-    public Livro(){}
+    public Livro() {
+    }
 
     public Livro(DadosLivro dadosLivro) {
         this.titulo = dadosLivro.titulo();
 
         if (dadosLivro.autores() != null && !dadosLivro.autores().isEmpty()) {
-              this.autor = new Autor(dadosLivro.autores().get(0));
-        }else {
-            this.autor  = null;
+            this.autor = new Autor(dadosLivro.autores().get(0));
+        } else {
+            this.autor = null;
         }
 
-        if ( dadosLivro.idiomas() != null && ! dadosLivro.idiomas().isEmpty()){
+        if (dadosLivro.idiomas() != null && !dadosLivro.idiomas().isEmpty()) {
             this.idiomas = String.join(",", dadosLivro.idiomas());
         }
 
@@ -80,7 +81,7 @@ public class Livro {
     @Override
     public String toString() {
         return "titulo: '" + titulo + '\'' +
-                "\nAutor: " +(autor != null ? autor.getNome() : "Desconhecido") +
+                "\nAutor: " + (autor != null ? autor.getNome() : "Desconhecido") +
                 "\nIdioma: " + idiomas +
                 "\nNúmero de Downloads:" + numeroDownloads + "\n";
     }

@@ -122,6 +122,7 @@ public class Principal {
             if (autores.isEmpty()) {
                 System.out.println("Nenhum autor vivo encontrado no ano de " + ano);
             } else {
+                System.out.println("==== Autor encontrado  no Banco, ano: ["+ ano +"] ===");
                 autores.stream().forEach(System.out::println);
             }
         } catch (NumberFormatException e) {
@@ -141,10 +142,10 @@ public class Principal {
         var idioma = leitura.nextLine().toLowerCase().trim();
 
         List<Livro> livrosPorIdioma = repositorioLivro.findByIdiomasContainingIgnoreCase(idioma);
-        if(livrosPorIdioma.isEmpty()){
+        if (livrosPorIdioma.isEmpty()) {
             System.out.println("Não encontrado  livro registrado nesse idioma");
         } else {
-            System.out.println("\n === Livro encontrado em [" + idioma + "]");
+            System.out.println("\n === Livro encontrado em [" + idioma + "] ===");
             livrosPorIdioma.stream().forEach(System.out::println);
         }
 

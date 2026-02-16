@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface AutorRepository extends JpaRepository<Autor, Long> {
 
-   // Optional<Autor> findByTituloIgnoreCase(String nome);
+    // Optional<Autor> findByTituloIgnoreCase(String nome);
 
     @Query("SELECT DISTINCT a FROM Livro l JOIN l.autor a ORDER BY a.nome")
     List<Autor> listarAutorResgistrado();

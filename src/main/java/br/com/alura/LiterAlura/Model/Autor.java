@@ -23,7 +23,8 @@ public class Autor {
     @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Livro> livros = new ArrayList<>();
 
-    public  Autor(){}
+    public Autor() {
+    }
 
     public Autor(DadosAutor dadosAutor) {
         this.nome = dadosAutor.nome();
@@ -80,9 +81,9 @@ public class Autor {
                 .map(Livro::getTitulo)
                 .collect(Collectors.joining(","));
 
-        return "Autor:"+ nome  +
+        return "Autor:" + nome +
                 "\nAno de Nascimento= " + anoNascimento +
                 "\nAno de Falecimento= " + (anoFalecimento != null ? anoFalecimento : "N/A") +
-                "\nLivro = " + nomesLivros ;
+                "\nLivro = " + nomesLivros;
     }
 }
